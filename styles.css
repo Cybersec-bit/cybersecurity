@@ -89,6 +89,18 @@ body {
     margin-top: 20px;
     padding: 0px;
 }
+.read-more1 {
+    width: 150px;
+    height: 25px;
+    background-color: #223254; 
+    color: white;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 17px;
+    text-decoration: none;
+    border-radius: 8px; /* Smooth edges */
+    transition: background-color 0.3s, transform 0.3s;
+}
 
 .image-content {
     max-width: 35%;
@@ -267,11 +279,9 @@ body {
     left: 150px;
     background-color: #ffffff;
     border-radius: 20px;
-    overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
-    display: flex;
-    justify-content: center; /* Center horizontally */
+    display: flex; /* Center horizontally */
     align-items: center; /* Center vertically */
 }
 .container img {
@@ -495,114 +505,77 @@ body {
     text-align: center;
 }
 
-.footer {
+.footer-container {
     background: url('assets/images/backdrop.png') no-repeat center center;
     background-size: cover;
     color: white;
-    padding: 40px 20px;
+    padding: 20px;
+    position: relative;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .footer-content {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
+    justify-content: space-around; /* Space out the sections equally */
+    width: 100%;
+    max-width: 800px;
+}
+
+.footer-section {
+    flex-basis: 45%;
+    margin-left: 50px; /* Adjust this value to move the section further right */
+}
+
+.footer-section h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
 }
 
 .acknowledgement {
     display: flex;
-    align-items: flex-start;
-    flex: 1 1 100%;
-    margin-bottom: 20px;
-    max-width: 600px;
+    align-items: center;
+    margin-top: 20px;
 }
 
-.acknowledgement-image {
-    width: 100px;
-    height: 100px;
+.acknowledgement img {
+    max-width: 100px;
+    height: auto;
     margin-right: 20px;
 }
 
-.acknowledgement-text {
-    max-width: 480px;
-}
-
-.acknowledgement-text h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.hotline {
-    flex: 1 1 300px;
-    margin-left: 35px;
-}
-
-.hotline h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.hotline-number {
-    font-size: 20px;
-    color: #00bfff;
-}
-
-.links {
-    flex: 1 1 300px;
-}
-
-.footer-links,
-.popular-pages {
-    margin-bottom: 20px;
-}
-
-.footer-links a,
-.popular-pages a {
-    display: block;
-    margin-bottom: 5px;
-    color: white;
-    text-decoration: none;
+.copyright {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid white;
+    margin-top: 20px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 14px;
-}
-
-.footer-links a:hover,
-.popular-pages a:hover {
-    text-decoration: underline;
-}
-
-.popular-pages h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.social-media {
-    display: flex;
-    align-items: center;
-}
-
-.social-media a {
-    margin-right: 10px;
-}
-
-.social-media img {
-    width: 24px;
-    height: 24px;
-}
-
-.footer-bottom {
-    display: flex;
-    /*justify-content: space-between;*/
-    align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.back-to-top {
-    color: white;
-    text-decoration: none;
-}
-
-.back-to-top:hover {
-    text-decoration: underline;
 }
 
 .search-container {
@@ -778,9 +751,17 @@ body {
     display: block; /* Ensure image behaves as a block element */
 }
 
+.image-container99 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%; /* Adjust as needed */
+    max-width: 1300px; /* Adjust max width as needed */
+}
 
-
-
-
-
-
+.image-container99 img {
+    width: 400px;
+    height: auto;
+    border-radius: 10px; /* Smooth edges */
+    margin: 0 10px; /* Separation between images */
+}
