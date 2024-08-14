@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Page</title>
+    <style>
+        /* Basic styling for layout and elements */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .search-container {
+            text-align: center;
+            margin: 20px;
+        }
+        .search-box {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 5px 10px;
+        }
+        .search-box input {
+            border: none;
+            outline: none;
+            padding: 5px;
+        }
+        .custom-select-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+        .custom-select-box {
+            position: relative;
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .custom-select-selected {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .custom-select-items {
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            z-index: 1;
+            max-height: 150px;
+            overflow-y: auto;
+            display: none;
+        }
+        .custom-select-items div {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .custom-select-items div:hover {
+            background-color: #f1f1f1;
+        }
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .card-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .card-description {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+<div class="gap" style="height: 75px;"></div>
+<div class="search-container">
+    <h1>Search</h1>
+    <p>Search hundreds of walkthroughs and challenges by security category or difficulty</p>
+    <div class="search-box">
+        <span class="search-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/1200px-Magnifying_glass_icon.svg.png" alt="Search Icon" width="20">
+        </span>
+        <input type="text" id="search-input" placeholder="Search">
+    </div>
+</div>
+<div class="main-container">
+    <div class="search-header">
+        <div class="custom-select-container">
+            <div class="custom-select-box">
+                <div class="custom-select-selected" data-value="all">Difficulty</div>
+                <div class="custom-select-items">
+                    <div data-value="all">All</div>
+                    <div data-value="easy">Easy</div>
+                    <div data-value="medium">Medium</div>
+                    <div data-value="hard">Hard</div>
+                </div>
+            </div>
+            <div class="custom-select-box">
+                <div class="custom-select-selected" data-value="all">Room Type</div>
+                <div class="custom-select-items">
+                    <div data-value="all">All</div>
+                    <div data-value="walkthrough">Walkthrough</div>
+                    <div data-value="challenge">Challenge</div>
+                    <div data-value="guide">Guide</div>
+                    <div data-value="tutorial">Tutorial</div>
+                </div>
+            </div>
+            <div class="custom-select-box">
+                <div class="custom-select-selected" data-value="relevance">Sort by</div>
+                <div class="custom-select-items">
+                    <div data-value="relevance">Relevance</div>
+                    <div data-value="most-popular">Most Popular</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cards-container" id="cards-container">
+        <!-- Example cards -->
+        <div class="card" data-difficulty="easy" data-type="walkthrough">
+            <div class="no-select">
+                <a href="google-login.html" class="no-select">
+                    <div class="card-title">Google Login Forum</div>
+                    <div class="card-description">Learn how to identify fraudulent Google login pages.</div>
+                    <div class="card-footer">
+                        <div class="card-difficulty">Easy</div>
+                        <div class="card-type">Walkthrough</div>
+                        <div class="card-subscription">Free</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="card" data-difficulty="medium" data-type="guide">
+            <div class="no-select">
+                <a href="facebook-login.html" class="no-select">
+                    <div class="card-title">Facebook Security Guide</div>
+                    <div class="card-description">Understand how to secure your Facebook account effectively.</div>
+                    <div class="card-footer">
+                        <div class="card-difficulty">Medium</div>
+                        <div class="card-type">Guide</div>
+                        <div class="card-subscription">Free</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- Add more cards as needed -->
+    </div>
+</div>
+
+<script>
+    // JavaScript to handle search and filtering
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('search-input');
+        const cardsContainer = document.getElementById('cards-container');
+        const customSelects = document.querySelectorAll('.custom-select-box');
+
+        // Filter cards based on search input and selected options
+        function filterCards() {
+            const searchValue = searchInput.value.toLowerCase();
+            const difficultyValue = document.querySelector('.custom-select-box:nth-child(1) .custom-select-selected').getAttribute('data-value');
+            const typeValue = document.querySelector('.custom-select-box:nth-child(2) .custom-select-selected').getAttribute('data-value');
+            const sortByValue = document.querySelector('.custom-select-box:nth-child(3) .custom-select-selected').getAttribute('data-value');
+
+            let cards = Array.from(cardsContainer.getElementsByClassName('card'));
+
+            cards.forEach(card => {
+                const cardTitle = card.querySelector('.card-title').textContent.toLowerCase();
+                const cardDescription = card.querySelector('.card-description').textContent.toLowerCase();
+                const cardDifficulty = card.getAttribute('data-difficulty');
+                const cardType = card.getAttribute('data-type');
+
+                let matchesSearch = cardTitle.includes(searchValue) || cardDescription.includes(searchValue);
+                let matchesDifficulty = (difficultyValue === 'all') || (cardDifficulty === difficultyValue);
+                let matchesType = (typeValue === 'all') || (cardType === typeValue);
+
+                if (matchesSearch && matchesDifficulty && matchesType) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (sortByValue === 'relevance') {
+                cards.sort((a, b) => {
+                    let aText = a.querySelector('.card-title').textContent.toLowerCase();
+                    let bText = b.querySelector('.card-title').textContent.toLowerCase();
+                    return aText.includes(searchValue) ? -1 : 1;
+                });
+            } else if (sortByValue === 'most-popular') {
+                // Example sorting logic, implement as needed
+                cards.sort((a, b) => b.querySelector('.card-title').textContent.localeCompare(a.querySelector('.card-title').textContent));
+            }
+
+            cardsContainer.innerHTML = '';
+            cards.forEach(card => {
+                cardsContainer.appendChild(card);
+            });
+        }
+
+        searchInput.addEventListener('input', filterCards);
+        customSelects.forEach(selectBox => {
+            const selectedDiv = selectBox.querySelector('.custom-select-selected');
+            const itemsDiv = selectBox.querySelector('.custom-select-items');
+
+            selectedDiv.addEventListener('click', () => {
+                itemsDiv.classList.toggle('custom-select-hide');
+                selectedDiv.classList.toggle('select-arrow-active');
+            });
+
+            itemsDiv.querySelectorAll('div').forEach(option => {
+                option.addEventListener('click', () => {
+                    selectedDiv.textContent = option.textContent;
+                    selectedDiv.setAttribute('data-value', option.getAttribute('data-value'));
+                    itemsDiv.classList.add('custom-select-hide');
+                    selectedDiv.classList.remove('select-arrow-active');
+                    filterCards();
+                });
+            });
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!e.target.matches('.custom-select-selected')) {
+                customSelects.forEach(selectBox => {
+                    const itemsDiv = selectBox.querySelector('.custom-select-items');
+                    itemsDiv.classList.add('custom-select-hide');
+                    selectBox.querySelector('.custom-select-selected').classList.remove('select-arrow-active');
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

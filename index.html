@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cyber Security Advice</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="gap" style="height: 75px;"></div>
+    <button class="sign-up-button" onclick="toggleSignUp()">Sign Up for Alerts</button>
+    <div class="sign-up" id="signUpForm">
+        <button class="close-button" onclick="toggleSignUp()">×</button>
+        <div class="content">
+            <h1>Never miss a threat</h1>
+            <p>Sign up for the latest cyber security alerts and get information on threats and how to keep yourself secure online.</p>
+            <form>
+                <input type="text" name="name" placeholder="Your name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <button type="submit">Sign up for alerts</button>
+            </form>
+            <div class="note">
+                This site is protected by reCAPTCHA and the Google <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a> apply.
+            </div>
+        </div>
+    </div>
+    <div class="top-rectangle" id="fixedHeader">
+        <div class="menu-icon"></div>
+        <img src="assets/images/bl.png" alt="Logo" class="logo" id="fixedHeader"> 
+    </div>
+    <div class="blue-rectangle">
+        <div class="text-content">
+            <h1>New cyber security advice<br>for your safety</h1>
+            <p>Learn cyber security advice to stay protected online.</p>
+            <a href="read-more.html" class="read-more">Read More</a>
+        </div>
+        <div class="image-content">
+            <img src="" alt="">
+        </div>
+    </div>
+    <div class="carousel-container">
+        <div class="fade fade-left"></div>
+        <div class="carousel-track">
+            <div class="carousel-item">
+                <img src="assets/images/c1.png" alt="Icon 1">
+                <p>Phishing attacks rising globally</p>
+            </div>
+            <div class="carousel-item">
+                <img src="assets/images/c2.png" alt="Icon 2"> 
+                <p>Real time updates to avoid breaches</p>
+            </div>
+            <div class="carousel-item">
+                <img src="assets/images/c3.png" alt="Icon 3"> 
+                <p>Strong passwords reduce risks</p>
+            </div>
+            <div class="carousel-item">
+                <img src="assets/images/c4.png" alt="Icon 1"> 
+                <p>Data encryption protects privacy</p>
+            </div>
+            <div class="carousel-item">
+                <img src="assets/images/c5.png" alt="Icon 2"> 
+                <p>Malware threats evolving quickly</p>
+            </div>
+            <div class="carousel-item">
+                <img src="assets/images/c6.png" alt="Icon 3"> 
+                <p>Lower the risk of being phished</p>
+            </div>
+            <div class="carousel-item">
+                <img src="assets/images/c7.png" alt="Icon 1"> 
+                <p>Cybercrime costs businesses billions every year</p>
+            </div>
+            <div class="carousel-item">
+                <img src="assets/images/c8.png" alt="Icon 2"> 
+                <p>Everyone is eligable to be victims of cybercrimes</p>
+            </div>
+        </div>
+        <div class="fade fade-right"></div>
+    </div>
+    <div class="arrow" onclick="scrollDown()"></div>
+    <div class="gap"></div>
+    <div class="graph-container">
+        <div class="chart-title">Data Breaches</div>
+        <div class="chart-subtitle">Major databreach severity across 2024.</div>
+        <div class="gap"></div>
+        <canvas id="myChart"></canvas>
+    </div>
+        <div class="chart-container">
+            <div class="chart-title">Top Vulnerabilities Reported</div>
+            <div class="chart-subtitle">Most successful types of cyber theft.</div>
+            
+            <div class="bar">
+                <div class="bar-label">Phishing</div>
+                <div class="bar-value" style="width: 100%;"></div>
+            </div>
+            <div class="bar">
+                <div class="bar-label">Malware</div>
+                <div class="bar-value" style="width: 85%;"></div>
+            </div>
+            <div class="bar">
+                <div class="bar-label">Ransom</div>
+                <div class="bar-value" style="width: 75%;"></div>
+            </div>
+            <div class="bar">
+                <div class="bar-label">Data Breaches</div>
+                <div class="bar-value" style="width: 70%;"></div>
+            </div>
+            <div class="bar">
+                <div class="bar-label">Outdated</div>
+                <div class="bar-value" style="width: 60%;"></div>
+            </div>
+            <div class="bar">
+                <div class="bar-label">Password</div>
+                <div class="bar-value" style="width: 55%;"></div>
+            </div>
+            <div class="bar">
+                <div class="bar-label">Physical</div>
+                <div class="bar-value" style="width: 50%;"></div>
+            </div>
+            <div class="bar">
+                <div class="bar-label">Other</div>
+                <div class="bar-value" style="width: 50%;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="gap" style="height: 12px;"></div>
+    <div style="text-align: center; font-size: 15px;">
+        <h1 class="gradient-text">Enhance your cybersecurity strategy with analytics.<br>Gain real-time insights and stay ahead of threats.</h1>
+        <a href="data.html" class="read-more" style="background-color: #223254; color: white; margin-left: 635px; width: 160px; height: 50px; font-size: 17px; margin-top: 40px;"  >Read More </a>
+      </div>     
+    <div class="gap" style="height: 50px;"></div>
+    <div class="text-center">
+        <h1 class="gradient-text">See how our phising simulator works — real examples with professional advice</h1>
+    </div>
+    <div class="container">
+        <div class="top-bar">
+            <div class="dots">
+                <div class="dot" style="background-color: lightcoral;"></div>
+                <div class="dot" style="background-color: darkorange;"></div>
+                <div class="dot" style="background-color: chartreuse;"></div>
+            </div>
+            <img src="assets/images/login.png" id="image" alt="Image">
+            <div class="url-bar">
+                <input type="text" value="http://google-loginaa122.r.so" readonly>
+                <div class="bubble bubble-1" id="bubble-1">Check if the website has a secure connection (HTTPS)<br>if it doesnt this is a tell tail sign it is fruadulent</div>
+                <div class="bubble bubble-2" id="bubble-2">Check if domain name is consistent with other google web login applications</div>
+                <div class="bubble bubble-3" id="bubble-3">Check if the top-level domain is correct (.com)</div>
+                <div class="bubble bubble-4" id="bubble-4">Check if font looks inncorrect</div>
+            </div>
+        </div>
+        <div class="advice-text" id="advice-text">
+            <ul>
+                <li>Look out for HTTPS secure connection to ensure data encryption.</li>
+                <li>Verify the domain name to make sure it matches the intended website.</li>
+                <li>Check the top-level domain (TLD) to avoid fraudulent sites.</li>
+                <li>Look for spelling errors or extra characters in the URL.</li>
+                <li>Be cautious of pop-ups or redirects to other pages.</li>
+                <li>Avoid clicking on suspicious links in emails or messages.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="buttons">
+        <div class="button-rect" onclick="showBubble(1, this)">
+            <div class="number">1</div>
+            Secure connection
+        </div>
+        <div class="button-rect" onclick="showBubble(2, this)">
+            <div class="number">2</div>
+            Domain name
+        </div>
+        <div class="button-rect" onclick="showBubble(3, this)">
+            <div class="number">3</div>
+            Top Domain Level
+        </div>
+        <div class="button-rect" onclick="showBubble(4, this)">
+            <div class="number">4</div>
+            Font
+        </div>
+        <div class="button-rect" onclick="showBubble(5, this)">
+            <div class="number">5</div>
+            Summary
+        </div>
+    </div>
+
+    <div style="text-align: center; font-size: 15px;">
+        <h1 class="gradient-text" style="margin-top: 1990px; position: absolute; top: 45%; left: 45%; transform: translate(-40%, -45%);">Enhance your cybersecurity strategy with analytics.<br>Gain real-time insights and stay ahead of threats.</h1>
+        <a href="workshop.html" class="read-more-button">Find More</a>
+    </div>
+
+    <div class="container33">
+        <img src="assets/images/gamecover.png" alt="Descriptive Alt Text" class="curved-image33">
+    </div>
+
+    <div class="container33" style="margin-left: 450px;">
+        <img src="assets/images/game.png" alt="Descriptive Alt Text" class="curved-image33">
+    </div>
+
+    <div class="container33" style="margin-left: -450px;">
+        <img src="assets/images/game2.png" alt="Descriptive Alt Text" class="curved-image33">
+    </div>
+
+    <div class="gap" style="height: 700px;"></div>
+
+    <div style="text-align: center; font-size: 15px; margin-top: 2760px; position: absolute; top: 45%; left: 45%; transform: translate(-40%, -45%);">
+        <h1 class="gradient-text">Check out our newly released Cyber Security game Hooky!</h1>
+    </div>
+    <a href="gameshowcase.html" style="text-align: center; font-size: 15px; margin-top: 2850px; position: absolute; top: 45%; margin-right: 100px; transform: translate(12%, -50%);" class="read-more-button">See More</a>
+
+    
+    <a href="deez.html" class="read-more" style="margin-bottom: -300px; background-color: #223254; color: white; margin-left: 635px; width: 160px; height: 50px; font-size: 17px; display: flex;
+    align-items: center;
+    justify-content: center;">Find More</a>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="acknowledgement">
+                <img src="assets/images/acknowledgement.png" alt="Acknowledgement Image" class="acknowledgement-image">
+                <div class="acknowledgement-text">
+                    <h2>Acknowledgement of Country</h2>
+                    <p>We acknowledge the Traditional Owners and Custodians of Country throughout Australia and their continuing connections to land, sea, and communities. We pay our respects to them, their cultures and their Elders; past, present and emerging. We also recognise Australia’s First Peoples’ enduring contribution to Australia’s national security.</p>
+                </div>
+            </div>
+            <div class="hotline">
+                <h2>Australian Cyber Security Hotline</h2>
+                <p class="hotline-number">1300 CYBER1 (1300 292 371)</p>
+            </div>
+            <div class="links">
+                <div class="footer-links">
+                    <h2 style="font-size: 20px;">Information</h2>
+                    <a href="#">Contact us</a>
+                    <a href="#">Glossary</a>
+                    <a href="#">View all content</a>
+                    <a href="#">Copyright</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Accessibility</a>
+                    <a href="#">Disclaimer</a>
+                    <a href="#">Social media terms of use</a>
+                    <a href="#">Careers</a>
+                </div>
+                <div class="popular-pages">
+                    <h2>Popular pages</h2>
+                    <a href="#">Essential Eight</a>
+                    <a href="#">Alerts and advisories</a>
+                    <a href="#">Information Security Manual</a>
+                </div>
+            </div>
+            <div class="social-media">
+                <a href="#"><img src="assets/images/twitter.png" alt="Twitter Icon"></a>
+                <a href="#"><img src="assets/images/facebook.png" alt="Facebook Icon"></a>
+                <a href="#"><img src="assets/images/linkedin.png" alt="LinkedIn Icon"></a>
+                <p1 style="color: rgba(0, 0, 0, 0);">hellooooo</p1>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright CyberSec® 2018-2024</p>
+        </div>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
+
+
+

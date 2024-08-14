@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Advice</title>
+    <style>
+        a {
+            color: rgba(0, 0, 0, 0.733); /* Default link color */
+            text-decoration: none; /* Remove underline */
+        }
+        body {
+            font-family: 'Adobe Clean', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .gap {
+            height: 80px;
+        }
+        .top-rectangle {
+            width: 100%;
+            height: 80px;
+            background-color: #FFFFFF;
+            transition: top 0.3s;
+            position: fixed;
+            z-index: 1000;
+        }
+        .logo {
+            margin-top: 12px;
+            margin-left: 20px;
+            transition: top 0.3s;
+            width: 200px;
+            z-index: 1000;
+            height: auto;
+        }
+        .search-container {
+            background-color: rgba(63, 172, 255, 0.215);
+            background-image: url('assets/images/waves.png');
+            background-size: cover;
+            color: white;
+            padding: 50px 0;
+            position: relative;
+        }
+        .search-container h1 {
+            margin: 10px 0;
+            color: black;
+            margin-left: 40px;
+            font-size: 2.5em;
+        }
+        .search-container p {
+            margin: 10px 0 30px;
+            margin-left: 40px;
+            color: black;
+            font-size: 1.2em;
+        }
+        .search-container .search-box {
+            position: relative;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            margin-left: 40px;
+            display: inline-block;
+        }
+        .search-container .search-box input {
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 15px;
+            border: none;
+            outline: none;
+            width: 250px;
+        }
+        .search-container .search-box .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+        .search-container .search-box .search-icon img {
+            width: 20px;
+            height: 20px;
+        }
+        .main-container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .search-header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            margin-left: 40px;
+        }
+        .custom-select-container {
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        .custom-select-box {
+            position: relative;
+            width: 160px;
+        }
+        .custom-select-selected {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .custom-select-selected:after {
+            content: "";
+            position: absolute;
+            top: 14px;
+            right: 10px;
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+            border-color: #000 transparent transparent transparent;
+        }
+        .custom-select-selected.select-arrow-active:after {
+            border-color: transparent transparent #000 transparent;
+            top: 7px;
+        }
+        .custom-select-items {
+            position: absolute;
+            background-color: #fff;
+            top: 100%;
+            left: 0;
+            right: 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            z-index: 99;
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+        .custom-select-items div {
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .custom-select-items div:hover {
+            background-color: #f1f1f1;
+        }
+        .custom-select-hide {
+            display: none;
+        }
+        .custom-select-show {
+            display: block;
+        }
+        .custom-same-as-selected {
+            background-color: #ddd;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin: 10px 0;
+            width: 300px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .card-description {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 100px;
+        }
+        .card-footer .card-difficulty {
+            color: #ff8c00;
+            font-weight: bold;
+        }
+        .card-footer .card-type {
+            color: #555;
+            font-weight: bold;
+        }
+        .card-footer .card-subscription {
+            background: linear-gradient(to right, #094674b4, #011d4579);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #87CEFA, #000080);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: width 0.3s, height 0.3s, border-radius 0.3s;
+        }
+        .chatbot-container.expanded {
+            width: 300px;
+            height: 400px;
+            border-radius: 15px;
+            flex-direction: column;
+        }
+        .chatbot-header {
+            background-color: #1E3A8A;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 15px 15px 0 0;
+            width: 100%;
+            display: none;
+            position: relative;
+        }
+        .chatbot-close {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            cursor: pointer;
+        }
+        .chatbot-body {
+            background-color: white;
+            padding: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+            width: 100%;
+            flex: 1;
+        }
+        .chatbot-input-container {
+            display: flex;
+            border-top: 1px solid #ddd;
+            padding: 10px;
+            background-color: white;
+            display: none;
+            width: 100%;
+        }
+        .chatbot-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+        .chatbot-send {
+            margin-left: 10px;
+            padding: 10px 15px;
+            background-color: #1E3A8A;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            outline: none;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #f1f1f1;
+            position: relative;
+        }
+        .message.bot {
+            background-color: #e2ffe2;
+        }
+        .message.user {
+            background-color: #e1f5fe;
+            text-align: right;
+        }
+        .timestamp {
+            font-size: 10px;
+            color: #888;
+            position: absolute;
+            bottom: 2px;
+            right: 10px;
+        }
+        .chatbot-icon {
+            width: 35px; /* Adjust the width as necessary */
+            height: 35px; /* Adjust the height as necessary */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .hidden {
+            display: none;
+        }
+        .no-select {
+            -webkit-user-select: none;  /* Chrome/Safari */
+            -moz-user-select: none;     /* Firefox */
+            -ms-user-select: none;      /* IE10+ */
+            user-select: none;  
+            text-decoration: none;         /* Standard */
+        }
+        a.no-select {
+            text-decoration: none; /* Remove underline from links */
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-top: 1px solid #ddd;
+        }
+        .pagination button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-size: 16px;
+            cursor: not-allowed;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .pagination button:disabled {
+            background-color: #b3d7ff;
+        }
+        .pagination .page-number {
+            font-size: 16px;
+            color: #333;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbot-container" id="chatbot-container">
+        <img src="assets/images/chatbot.png" alt="Chatbot Icon" class="chatbot-icon" id="chatbot-icon">
+        <div class="chatbot-header" id="chatbot-header">
+            Chat Bot
+            <span class="chatbot-close" onclick="toggleChat(event)">x</span>
+        </div>
+        <div class="chatbot-body" id="chatbot-body">
+            <div class="message bot">
+                What could I assist you with today?
+            </div>
+        </div>
+        <div class="chatbot-input-container" id="chatbot-input-container">
+            <input type="text" class="chatbot-input" id="user-input" placeholder="Type your message here...">
+            <button class="chatbot-send" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+
+    <div class="top-rectangle" id="fixedHeader">
+        <a href="index.html">
+            <img src="assets/images/bl.png" alt="Logo" class="logo">
+        </a>
+    </div>
+    <div class="gap" style="height: 75px;"></div>
+    <div class="search-container">
+        <h1>Search</h1>
+        <p>Search hundreds of walkthroughs and challenges by security category or difficulty</p>
+        <div class="search-box">
+            <span class="search-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/1200px-Magnifying_glass_icon.svg.png" alt="Search Icon">
+            </span>
+            <input type="text" id="searchInput" placeholder="Search..." />
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="search-header">
+            <div class="custom-select-container">
+                <div class="custom-select-box">
+                    <div class="custom-select-selected">Difficulty</div>
+                    <div class="custom-select-items custom-select-hide">
+                        <div>Easy</div>
+                        <div>Medium</div>
+                        <div>Hard</div>
+                    </div>
+                </div>
+                <div class="custom-select-box">
+                    <div class="custom-select-selected">Room Type</div>
+                    <div class="custom-select-items custom-select-hide">
+                        <div>Walkthrough</div>
+                        <div>Challenge</div>
+                    </div>
+                </div>
+                <div class="custom-select-box">
+                    <div class="custom-select-selected">Sort by</div>
+                    <div class="custom-select-items custom-select-hide">
+                        <div>Relevance</div>
+                        <div>Most Popular</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cards-container">
+            <div class="card">
+                <div class="no-select">
+                    <a href="google-login.html" class="no-select">
+                        <div class="card-title">Google Login Forum</div>
+                        <div class="card-description">Learn how to identify fraudulent Google login pages.</div>
+                        <div class="card-footer">
+                            <div class="card-difficulty">Easy</div>
+                            <div class="card-type">Walkthrough</div>
+                            <div class="card-subscription">Free</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="no-select">
+                    <a href="facebook-login.html" class="no-select">
+                        <div class="card-title">Facebook Security Guide</div>
+                        <div class="card-description">Understand how to secure your Facebook account effectively.</div>
+                        <div class="card-footer">
+                            <div class="card-difficulty">Medium</div>
+                            <div class="card-type">Guide</div>
+                            <div class="card-subscription">Free</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="no-select">
+                    <a href="apple-login.html" class="no-select">
+                        <div class="card-title">Apple ID Protection</div>
+                        <div class="card-description">Tips and tricks to protect your Apple ID from phishing.</div>
+                        <div class="card-footer">
+                            <div class="card-difficulty">Easy</div>
+                            <div class="card-type">Tutorial</div>
+                            <div class="card-subscription">Free</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="no-select">
+                    <a href="coming-soon.html" class="no-select">
+                        <div class="card-title">Amazon Account Safety</div>
+                        <div class="card-description">Learn how to keep your Amazon account secure from scams.</div>
+                        <div class="card-footer">
+                            <div class="card-difficulty">Medium</div>
+                            <div class="card-type">Walkthrough</div>
+                            <div class="card-subscription">Free</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="no-select">
+                    <a href="coming-soon.html" class="no-select">
+                        <div class="card-title">Microsoft Account Guide</div>
+                        <div class="card-description">Steps to secure your Microsoft account from cyber threats.</div>
+                        <div class="card-footer">
+                            <div class="card-difficulty">Hard</div>
+                            <div class="card-type">Guide</div>
+                            <div class="card-subscription">Free</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="no-select">
+                    <a href="coming-soon.html" class="no-select">
+                        <div class="card-title">Twitter Safety Tips</div>
+                        <div class="card-description">Essential tips to ensure your Twitter account remains safe.</div>
+                        <div class="card-footer">
+                            <div class="card-difficulty">Easy</div>
+                            <div class="card-type">Tutorial</div>
+                            <div class="card-subscription">Free</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="no-select">
+                    <a href="coming-soon.html" class="no-select">
+                        <div class="card-title">LinkedIn Account Security</div>
+                        <div class="card-description">How to secure your LinkedIn profile from phishing attacks.</div>
+                        <div class="card-footer">
+                            <div class="card-difficulty">Medium</div>
+                            <div class="card-type">Walkthrough</div>
+                            <div class="card-subscription">Free</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="no-select">
+                    <a href="coming-soon.html" class="no-select">
+                        <div class="card-title">Instagram Security Guide</div>
+                        <div class="card-description">Steps to protect your Instagram account from hackers.</div>
+                        <div class="card-footer">
+                            <div class="card-difficulty">Easy</div>
+                            <div class="card-type">Guide</div>
+                            <div class="card-subscription">Free</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="no-select">
+                    <a href="coming-soon.html" class="no-select">
+                        <div class="card-title">Snapchat Account Safety</div>
+                        <div class="card-description">Learn how to secure your Snapchat account from threats.</div>
+                        <div class="card-footer">
+                            <div class="card-difficulty">Medium</div>
+                            <div class="card-type">Tutorial</div>
+                            <div class="card-subscription">Free</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="no-select">
+                    <a href="coming-soon.html" class="no-select">
+                        <div class="card-title">Netflix Account Guide</div>
+                        <div class="card-description">Best practices to secure your Netflix account.</div>
+                        <div class="card-footer">
+                            <div class="card-difficulty">Easy</div>
+                            <div class="card-type">Walkthrough</div>
+                            <div class="card-subscription">Free</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="no-select">
+                    <a href="coming-soon.html" class="no-select">
+                        <div class="card-title">PayPal Fraud Protection</div>
+                        <div class="card-description">Learn to identify and avoid PayPal scams and frauds.</div>
+                        <div class="card-footer">
+                            <div class="card-difficulty">Hard</div>
+                            <div class="card-type">Guide</div>
+                            <div class="card-subscription">Free</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="no-select">
+                    <a href="coming-soon.html" class="no-select">
+                        <div class="card-title">YouTube Account Security</div>
+                        <div class="card-description">Steps to ensure your YouTube account is protected.</div>
+                        <div class="card-footer">
+                            <div class="card-difficulty">Medium</div>
+                            <div class="card-type">Tutorial</div>
+                            <div class="card-subscription">Free</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="no-select">
+                    <a href="coming-soon.html" class="no-select">
+                        <div class="card-title">Reddit Safety Tips</div>
+                        <div class="card-description">Tips to keep your Reddit account secure from phishing.</div>
+                        <div class="card-footer">
+                            <div class="card-difficulty">Easy</div>
+                            <div class="card-type">Guide</div>
+                            <div class="card-subscription">Free</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="no-select">
+                    <a href="coming-soon.html" class="no-select">
+                        <div class="card-title">Spotify Account Protection</div>
+                        <div class="card-description">How to safeguard your Spotify account from hackers.</div>
+                        <div class="card-footer">
+                            <div class="card-difficulty">Medium</div>
+                            <div class="card-type">Walkthrough</div>
+                            <div class="card-subscription">Free</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="no-select">
+                    <a href="coming-soon.html" class="no-select">
+                        <div class="card-title">eBay Security Guide</div>
+                        <div class="card-description">Effective ways to secure your eBay account from fraud.</div>
+                        <div class="card-footer">
+                            <div class="card-difficulty">Hard</div>
+                            <div class="card-type">Guide</div>
+                            <div class="card-subscription">Free</div>
+                        </div>
+                    </a>
+                </div>
+            </div>            
+        </div>
+    </div>
+
+    <div class="pagination">
+        <button disabled style="width: 120px;">&laquo; Previous</button>
+        <span class="page-number">1 of 1</span>
+        <button disabled style="width: 120px;">Next &raquo;</button>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    
+
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchQuery = this.value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+
+            cards.forEach(card => {
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const description = card.querySelector('.card-description').textContent.toLowerCase();
+                const difficulty = card.querySelector('.card-difficulty').textContent.toLowerCase();
+                const type = card.querySelector('.card-type').textContent.toLowerCase();
+                const subscription = card.querySelector('.card-subscription').textContent.toLowerCase();
+
+                if (
+                    title.includes(searchQuery) || 
+                    description.includes(searchQuery) ||
+                    difficulty.includes(searchQuery) ||
+                    type.includes(searchQuery) ||
+                    subscription.includes(searchQuery)
+                ) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        document.querySelectorAll('.custom-select-box').forEach(selectBox => {
+            const selected = selectBox.querySelector('.custom-select-selected');
+            const items = selectBox.querySelector('.custom-select-items');
+
+            selected.addEventListener('click', () => {
+                closeAllSelect(selected);
+                items.classList.toggle('custom-select-hide');
+                items.classList.toggle('custom-select-show');
+                selected.classList.toggle('select-arrow-active');
+            });
+
+            items.querySelectorAll('div').forEach(item => {
+                item.addEventListener('click', () => {
+                    selected.textContent = item.textContent;
+                    items.classList.add('custom-select-hide');
+                    items.classList.remove('custom-select-show');
+                    selected.classList.remove('select-arrow-active');
+                    items.querySelectorAll('div').forEach(i => i.classList.remove('custom-same-as-selected'));
+                    item.classList.add('custom-same-as-selected');
+                });
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.matches('.custom-select-selected')) {
+                closeAllSelect();
+            }
+        });
+
+        function closeAllSelect(except) {
+            document.querySelectorAll('.custom-select-items').forEach(items => {
+                if (except !== items.previousElementSibling) {
+                    items.classList.add('custom-select-hide');
+                    items.classList.remove('custom-select-show');
+                    items.previousElementSibling.classList.remove('select-arrow-active');
+                }
+            });
+        }
+        let lastScrollTop = 0;
+        const fixedHeader = document.getElementById('fixedHeader');
+
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                // Scroll down
+                if (scrollTop > 100) { // Adjust this value if needed
+                    fixedHeader.style.top = '0';
+                }
+            } else {
+                // Scroll up
+                fixedHeader.style.top = '-100px'; // Adjust based on your fixed header height
+            }
+
+            if (scrollTop <= 0) {
+                // At the top of the page
+                fixedHeader.style.top = '0';
+            }
+
+            lastScrollTop = scrollTop;
+        });
+
+        const API_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMzE5ZmNiNjYtZmMzZS00ZjAyLThiYjUtMThmNmFjNDk4YTI1IiwidHlwZSI6ImFwaV90b2tlbiJ9.XqcuI1QlRv4JeILr6Xg4X44uiIZUfJKnD1sFkjm_FOk';
+
+        document.getElementById('chatbot-container').addEventListener('click', function(event) {
+            if (!this.classList.contains('expanded')) {
+                toggleChat(event);
+            }
+        });
+
+        function toggleChat(event) {
+            event.stopPropagation();
+            var chatContainer = document.getElementById('chatbot-container');
+            chatContainer.classList.toggle('expanded');
+
+            var chatHeader = document.getElementById('chatbot-header');
+            var chatBody = document.getElementById('chatbot-body');
+            var chatInputContainer = document.getElementById('chatbot-input-container');
+            var chatbotIcon = document.getElementById('chatbot-icon');
+
+            if (chatContainer.classList.contains('expanded')) {
+                chatHeader.style.display = 'block';
+                chatBody.style.display = 'block';
+                chatInputContainer.style.display = 'flex';
+                chatbotIcon.classList.add('hidden');
+            } else {
+                chatHeader.style.display = 'none';
+                chatBody.style.display = 'none';
+                chatInputContainer.style.display = 'none';
+                chatbotIcon.classList.remove('hidden');
+            }
+        }
+
+        function sendMessage() {
+            var userInput = document.getElementById('user-input');
+            var message = userInput.value;
+            if (message.trim() === '') return;
+
+            var chatBody = document.getElementById('chatbot-body');
+
+            var userMessage = document.createElement('div');
+            userMessage.className = 'message user';
+            userMessage.innerHTML = message + '<div class="timestamp">Sent</div>';
+            chatBody.appendChild(userMessage);
+
+            userInput.value = '';
+
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            getBotResponse(message);
+        }
+
+        function getBotResponse(message) {
+            axios.post('https://api.edenai.run/v2/text/generation', {
+                providers: ["openai"],
+                text: message,
+                parameters: {
+                    temperature: 0.5,
+                    max_tokens: 150
+                }
+            }, {
+                headers: {
+                    'Authorization': `Bearer ${API_TOKEN}`
+                }
+            }).then(response => {
+                var botMessage = document.createElement('div');
+                botMessage.className = 'message bot';
+                botMessage.innerText = response.data.openai.generated_text.trim();
+                document.getElementById('chatbot-body').appendChild(botMessage);
+                document.getElementById('chatbot-body').scrollTop = document.getElementById('chatbot-body').scrollHeight;
+            }).catch(error => {
+                console.error('Error fetching the bot response:', error);
+                var botMessage = document.createElement('div');
+                botMessage.className = 'message bot';
+                document.getElementById('chatbot-body').appendChild(botMessage);
+                document.getElementById('chatbot-body').scrollTop = document.getElementById('chatbot-body').scrollHeight;
+            });
+        }
+    </script>
+</body>
+</html>

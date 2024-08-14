@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walkthrough Coming Soon</title>
+    <style>
+         .top-rectangle {
+            width: 100%;
+            height: 80px;
+            top: 0px;
+            background-color: #FFFFFF;
+        }
+
+        .logo {
+            top: -10px;
+            margin-top: 12px;
+            left: -10px;
+            width: 200px;
+            height: auto;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+        .dots {
+            font-size: 2em;
+            margin-bottom: 1em;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+        @keyframes blink {
+            0%, 20% {
+                opacity: 1;
+            }
+            20.1%, 100% {
+                opacity: 0;
+            }
+        }
+        .dot {
+            display: inline-block;
+            width: 1em;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            animation: blink 1s infinite;
+        }
+        .dot:nth-child(1) {
+            animation-delay: 0s;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+        .dot:nth-child(2) {
+            animation-delay: 0.2s;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+        .dot:nth-child(3) {
+            animation-delay: 0.4s;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+        a {
+            display: block;
+            margin: 1em 0;
+            font-size: 1.2em;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+        footer {
+            background: #01244B;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="top-rectangle">
+        <img src="assets/images/bl.png" alt="Logo" class="logo"> 
+    </div>
+    <div style="height: 150px;"></div>
+    <h1>Sorry, this walkthrough is coming soon</h1>
+    <div class="dots">
+        <span class="dot">.</span>
+        <span class="dot">.</span>
+        <span class="dot">.</span>
+    </div>
+    <a href="workshop.html">Try checking out our other walkthroughs</a>
+    <a href="index.html">Return to homepage</a>
+    <div style="height: 350px;"></div>
+    <footer>
+        <div>
+            &copy; 2024 Cyber Security Blog. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

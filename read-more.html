@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Advice</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            margin: 0;
+            background: #F0F3F4;
+            font-family: 'Adobe Clean', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .top-rectangle {
+            width: 100%;
+            height: 80px;
+            transition: top 0.3s;
+            background-color: #FFFFFF;
+            z-index: 1000;
+            position: fixed;
+        }
+
+        .logo {
+            top: -10px;
+            margin-top: 12px;
+            left: -10px;
+            transition: top 0.3s;
+            z-index: 1000;
+            width: 200px;
+            height: auto;
+        }
+
+        .blue-rectangle {
+            width: 100%;
+            height: 400px;
+            background-color: #01244B;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 50px 80px;
+            background-image: url('assets/images/backdrop.png');
+            background-size: cover;
+            background-position: center;
+            box-sizing: border-box;
+        }
+
+        .text-content {
+            max-width: 60%;
+        }
+
+        .text-content h1 {
+            font-size: 45px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .text-content p {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: white;
+            color: #01244B;
+            font-size: 15px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .gap {
+            height: 75px;
+        }
+
+        .intro {
+            background: #E9EBF1;
+            padding: 100px 20px;
+            text-align: center;
+            margin-top: 0px; /* Space for fixed header */
+        }
+
+        .intro .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .intro h2 {
+            font-size: 28px;
+            color: #01244B;
+        }
+
+        .intro p {
+            font-size: 18px;
+            margin: 20px 0;
+            color: #555;
+        }
+
+        .arrow-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center; /* Centers horizontally */
+            align-items: center;
+        }
+
+        .arrow-circle {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #01244B;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .arrow-circle img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .content {
+            background: white;
+            padding: 60px 20px;
+            border-top: 5px solid #01244B;
+        }
+
+        .content .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .content h3 {
+            font-size: 24px;
+            color: #01244B;
+            margin-bottom: 20px;
+        }
+
+        .content h4 {
+            font-size: 20px;
+            color: #01244B;
+            margin-top: 40px;
+        }
+
+        .content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .content li {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .content a {
+            color: #01244B;
+            text-decoration: underline;
+        }
+
+        .report-scam {
+            background: #F9E7E7;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .report-scam h4 {
+            font-size: 20px;
+            color: #D9534F;
+            margin: 0;
+        }
+
+        .report-scam p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        footer {
+            background: #01244B;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html">
+    <div class="top-rectangle" id="fixedHeader">
+        <img src="assets/images/bl.png" alt="Logo" class="logo">
+    </div>
+    </a>
+
+    <div class="gap"></div>
+
+    <div class="blue-rectangle">
+        <div class="text-content">
+            <h1>Recognise and report scams</h1>
+            <p>Protect yourself and report scammers</p>
+        </div>
+    </div>
+
+    <section class="intro">
+        <div class="container">
+            <h2>Scams are a common way that cybercriminals compromise accounts</h2>
+            <p>Being alert to scam messages is a great way to protect yourself online. These 'scammers' may try to compromise your business, workplace or university accounts.</p>
+            <p>Scammers often use email, text messages, phone calls and social media. Their goal is to scam people into paying money or giving away their personal information. They will often pretend to be a person or organisation you trust.</p>
+            <div class="arrow-container">
+                <div class="arrow-circle" onclick="scrollToSection('section1')">
+                    <img src="assets/images/down-arrow.png" alt="Scroll Down">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section1" class="content">
+        <div class="container">
+            <h3>Don't fall for scams in two steps</h3>
+            <h4>First, check if it is a scam</h4>
+            <ul>
+                <li>Know what to look for. View common <a href="#">types of scams</a> such as dating scams, investment scams, phishing emails and text, or invoice fraud.</li>
+                <li>Go direct to a source you can trust. Visit the official website, log in to your account, or call their phone number. Don’t use the links or contact details in the message or given to you on the phone.</li>
+                <li>Check what the official source says about what details they might request from you. Often companies or government agencies will say what they will and will not ask you online or over the phone. For example, the bank may tell you that they will never ask for your password. If someone claiming to be from the bank then asks you for your password, you know it is likely a scam.</li>
+            </ul>
+
+            <h4>Then, if you still think it’s a scam</h4>
+            <ul>
+                <li>Don’t click on links, open any attachments or reply to requests. Scam messages may try and trick you into giving out your personal information. A scammer might ask for your bank account details, passwords or credit card numbers. They may also ask you to download files, software, or allow remote access to your computer.</li>
+                <li>Contact your bank. Contact your financial institution if you think your credit cards or bank account may be at risk. They may be able to close your account or stop a transaction.</li>
+                <li>Report a cybercrime via <a href="#">ReportCyber</a> if you have fallen victim to a scam.</li>
+                <li>Help keep Australia secure by reporting the scam to the <a href="#">National Anti-Scam Centre - Scamwatch</a>.</li>
+            </ul>
+
+            <div class="report-scam">
+                <h4>Report a scam to Scamwatch</h4>
+                <p><a href="#">National Anti-Scam Centre</a></p>
+                <p><a href="#">You can report a scam to the National Anti-Scam Centre - Scamwatch</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            &copy; 2024 Cyber Security Blog. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        let lastScrollTop = 0;
+const fixedHeader = document.getElementById('fixedHeader');
+
+window.addEventListener('scroll', function() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+        // Scroll down
+        if (scrollTop > 100) { // Adjust this value if needed
+            fixedHeader.style.top = '0';
+        }
+    } else {
+        // Scroll up
+        fixedHeader.style.top = '-80px'; // Adjust based on your fixed header height
+    }
+
+    if (scrollTop <= 0) {
+        // At the top of the page
+        fixedHeader.style.top = '0';
+    }
+
+    lastScrollTop = scrollTop;
+});
+
+        
+    </script>
+</body>
+</html>
